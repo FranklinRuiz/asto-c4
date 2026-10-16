@@ -6,7 +6,7 @@
 [![draw.io](https://img.shields.io/badge/works%20with-draw.io-F08705?logo=diagramsdotnet&logoColor=white)](https://www.drawio.com/)
 [![Free](https://img.shields.io/badge/price-free-297E06)](#license)
 
-**[Open Asto C4 in draw.io →](https://app.diagrams.net/?clibs=Uhttps://raw.githubusercontent.com/FranklinRuiz/asto-c4/HEAD/Asto%20C4&splash=0)**
+**[Open Asto C4 in draw.io →](https://app.diagrams.net/?clibs=Uhttps://raw.githubusercontent.com/FranklinRuiz/asto-c4/HEAD/Asto-C4&splash=0)**
 
 ![Asto C4 elements](Asto-C4.png)
 
@@ -42,7 +42,7 @@
 
 Open this link. draw.io starts with the library already loaded in the left panel:
 
-https://app.diagrams.net/?clibs=Uhttps://raw.githubusercontent.com/FranklinRuiz/asto-c4/HEAD/Asto%20C4&splash=0
+https://app.diagrams.net/?clibs=Uhttps://raw.githubusercontent.com/FranklinRuiz/asto-c4/HEAD/Asto-C4&splash=0
 
 ### In the desktop app
 
@@ -57,7 +57,7 @@ The library appears in the left panel and stays available until you close it.
 In draw.io, go to **File → Open Library from → URL…** and paste:
 
 ```text
-https://raw.githubusercontent.com/FranklinRuiz/asto-c4/HEAD/Asto%20C4
+https://raw.githubusercontent.com/FranklinRuiz/asto-c4/HEAD/Asto-C4
 ```
 
 ![Asto C4 in the draw.io left panel](Asto-C4-Screenshot.png)
@@ -152,12 +152,12 @@ Relationships are gray dashed lines with a filled arrowhead. The description and
 
 | File | Description |
 |---|---|
-| [`Asto C4`](Asto%20C4) | The library, loaded by URL from draw.io |
+| [`Asto-C4`](Asto-C4) | The library, loaded by URL from draw.io |
 | [`Asto-C4-Library.xml`](Asto-C4-Library.xml) | The same library, for **File → Open Library…** |
 | [`Asto-C4-Example-diagram.drawio`](Asto-C4-Example-diagram.drawio) | Example diagram built with the library |
 | `Asto-C4.png`, `Asto-C4-Screenshot.png` | Images used in this README |
 
-`Asto C4` and `Asto-C4-Library.xml` have identical content. Keep them in sync when you change the library.
+`Asto-C4` and `Asto-C4-Library.xml` have identical content. Keep them in sync when you change the library.
 
 ---
 
@@ -167,7 +167,7 @@ Contributions are welcome.
 
 1. Check the [open issues](https://github.com/FranklinRuiz/asto-c4/issues) before opening a new one.
 2. To report a problem, describe what you expected, what you got, and your draw.io version (web or desktop).
-3. To change the library, edit it in draw.io and save it with **File → Save** in the library panel. Then copy the result to both `Asto C4` and `Asto-C4-Library.xml`.
+3. To change the library, edit it in draw.io and save it with **File → Save** in the library panel. Then copy the result to both `Asto-C4` and `Asto-C4-Library.xml`.
 4. Open a pull request with a short description and, if the change is visual, a screenshot.
 
 ---
