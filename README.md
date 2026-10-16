@@ -60,6 +60,8 @@ In draw.io, go to **File → Open Library from → URL…** and paste:
 https://raw.githubusercontent.com/FranklinRuiz/asto-c4/HEAD/Asto%20C4
 ```
 
+![Asto C4 in the draw.io left panel](Asto-C4-Screenshot.png)
+
 ---
 
 ## Elements
@@ -83,7 +85,6 @@ https://raw.githubusercontent.com/FranklinRuiz/asto-c4/HEAD/Asto%20C4
 | Folder Container | Directories and static content | `folder` |
 | Data Container | Databases and schemas | `cylinder3` |
 | Bucket Container | Object storage (S3, Blob, GCS) | Stencil |
-| Microservice Container | Microservices | `hexagon` |
 | Message Bus Container | Queues and event buses | `cylinder3` (horizontal) |
 | Mobile App Container | iOS and Android apps | Stencil |
 
@@ -154,7 +155,7 @@ Relationships are gray dashed lines with a filled arrowhead. The description and
 | [`Asto C4`](Asto%20C4) | The library, loaded by URL from draw.io |
 | [`Asto-C4-Library.xml`](Asto-C4-Library.xml) | The same library, for **File → Open Library…** |
 | [`Asto-C4-Example-diagram.drawio`](Asto-C4-Example-diagram.drawio) | Example diagram built with the library |
-| `Asto-C4.png` | Image used in this README |
+| `Asto-C4.png`, `Asto-C4-Screenshot.png` | Images used in this README |
 
 `Asto C4` and `Asto-C4-Library.xml` have identical content. Keep them in sync when you change the library.
 
@@ -174,7 +175,6 @@ Contributions are welcome.
 ## Credits
 
 - The **C4 model** and its notation were created by [Simon Brown](https://simonbrown.je/). See [c4model.com](https://c4model.com/).
-- Asto C4 started from the [Hycom C4](https://github.com/hycomsa/hycom-c4) library by Hycom.
 - Built for [draw.io](https://www.drawio.com/) by JGraph.
 
 ---
