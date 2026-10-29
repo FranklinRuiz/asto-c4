@@ -29,7 +29,7 @@
 ## Why Asto C4
 
 - **Faithful to c4model.com.** Every element uses the notation from the official C4 model examples: a colored outline on a white background, with the name, `[type: technology]` and description in the element's color.
-- **Built on draw.io's own shapes.** Data stores, folders, components and nodes use shapes that ship with draw.io. Custom stencils are used only where draw.io has no equivalent, such as the person with its arm lines.
+- **Built on draw.io's own shapes.** Data stores, components and nodes use shapes that ship with draw.io. Custom stencils are used only where draw.io has no equivalent, such as the person with its arm lines or the folder tab.
 - **Structured data, not loose text.** Names, types, technologies and descriptions are stored as element properties, so the label layout stays consistent however you edit them.
 - **All six C4 diagrams.** System context, container, component, system landscape, dynamic and deployment.
 - **Free and open source.** No account, no plugin and nothing to install. Use it in the browser or in the desktop app.
@@ -82,7 +82,7 @@ https://raw.githubusercontent.com/FranklinRuiz/asto-c4/HEAD/Asto C4
 | Container | Any application or service | Rounded rectangle |
 | Web Browser Container | Single-page and web apps | Stencil |
 | Server-side App Container | Back-end processes and APIs (`>_`) | Stencil |
-| Folder Container | Directories and static content | `folder` |
+| Folder Container | Directories and static content | Stencil |
 | Data Container | Databases and schemas | `cylinder3` |
 | Bucket Container | Object storage (S3, Blob, GCS) | Stencil |
 | Message Bus Container | Queues and event buses | `cylinder3` (horizontal) |
