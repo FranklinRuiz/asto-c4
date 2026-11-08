@@ -253,8 +253,10 @@ function coreRows(spec, core, rightIds) {
   const rows = [];
   const depths = [...new Set(order.map((i) => depth.get(i) ?? 0))].sort((a, b) => a - b);
   for (const d of depths) {
+    // the more an element talks to external systems, the further right it goes
+    const outward = (e) => [...neighbours(spec, e.id)].filter((n) => rightIds.has(n)).length;
     const items = order.filter((i) => (depth.get(i) ?? 0) === d).map((i) => byId.get(i))
-      .sort((a, b) => Number(talksRight.has(a.id)) - Number(talksRight.has(b.id)));
+      .sort((a, b) => outward(a) - outward(b));
     for (const row of chunks(items, CORE_PER_ROW)) rows.push(...splitCrossed(row, rs));
   }
   return [rows, talksRight];
@@ -315,15 +317,36 @@ function placeUnder(spec, pos, items, y, lo, hi, forced = {}) {
   return rowH;
 }
 
-/** Stack [wantedY, tie, element] in a column, each as close to its wanted height as the ones above allow. */
+/** Stack [wantedY, tie, element] in a column without overlaps. Elements that want the same height form a
+ *  group centred on that height (instead of hanging below it), so the column stays close to what it talks to. */
 function stackColumn(pos, wanted, x) {
   wanted.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
-  let ry = null;
+  const clusters = [];
   for (const [wy, , e] of wanted) {
-    const [w, h] = sizeOf(e);
-    ry = ry === null ? wy : Math.max(wy, ry);
-    pos.set(e.id, [x, ry, w, h]);
-    ry += h + RIGHT_V_GAP;
+    clusters.push({ items: [e], wants: [wy], top: wy, height: sizeOf(e)[1] });
+    for (;;) {
+      const last = clusters[clusters.length - 1];
+      const prev = clusters[clusters.length - 2];
+      if (!prev || prev.top + prev.height + RIGHT_V_GAP <= last.top) break;
+      // merge and centre the group: each member's wanted top minus its offset inside the group
+      const items = [...prev.items, ...last.items];
+      const wants = [...prev.wants, ...last.wants];
+      let offset = 0;
+      const tops = items.map((it, i) => {
+        const t = wants[i] - offset;
+        offset += sizeOf(it)[1] + RIGHT_V_GAP;
+        return t;
+      });
+      clusters.splice(-2, 2, { items, wants, top: mean(tops), height: offset - RIGHT_V_GAP });
+    }
+  }
+  for (const c of clusters) {
+    let ry = c.top;
+    for (const e of c.items) {
+      const [w, h] = sizeOf(e);
+      pos.set(e.id, [x, ry, w, h]);
+      ry += h + RIGHT_V_GAP;
+    }
   }
 }
 
@@ -345,6 +368,10 @@ function placeRight(spec, pos, right, x, topIds, coreTop) {
     if (!level.length && rest.length) [level, rest] = [rest.slice(0, 1), rest.slice(1)];
   }
   columns.forEach((col, c) => {
+    // leave room for the longest label of the arrows that reach this column
+    const ids = new Set(col.map((e) => e.id));
+    const widest = Math.max(0, ...rels(spec).filter((r) => ids.has(r.from) !== ids.has(r.to)).map(labelWidth));
+    x += Math.max(0, widest + 60 - RIGHT_GAP);
     let wanted = col.map((e) => {
       const h = sizeOf(e)[1];
       const nb = neighbours(spec, e.id);
@@ -421,7 +448,10 @@ function layoutViews(spec) {
   const sysTop = inSys.filter((e) => callers.has(e.id));
   const sysBottom = inSys.filter((e) => !sysTop.includes(e));
   const right = outside.filter((e) => !top.includes(e) && !inSys.includes(e));
-  const [rows, talksRight] = coreRows(spec, core, new Set(right.map((e) => e.id)));
+  const rightIds = new Set(right.map((e) => e.id));
+  // people that hear from external systems (notifications) go right, next to them
+  top.sort((a, b) => Number(intersects(neighbours(spec, a.id), rightIds)) - Number(intersects(neighbours(spec, b.id), rightIds)));
+  const [rows, talksRight] = coreRows(spec, core, rightIds);
 
   const inner = LEVELS[lvl].boundary ? PAD : 0;
   const outer = nested ? PAD : 0;
@@ -455,7 +485,15 @@ function layoutViews(spec) {
   const rightmost = {};
   for (const row of rows) for (const e of row) if (talksRight.has(e.id)) rightmost[e.id] = coreLeft + areaW - COL_W / 2;
   rows.forEach((row, i) => {
-    if (i === 0 && !row.some((e) => e.id in rightmost)) y += placeRow(pos, row, cx, y) + ROW_GAP;
+    if (i === 0 && !row.some((e) => e.id in rightmost)) {
+      // in the order of the people or callers above them, so their arrows do not cross
+      const callerX = (e) => {
+        const xs = [...neighbours(spec, e.id)].filter((n) => pos.has(n)).map((n) => center(pos.get(n))[0]);
+        return xs.length ? mean(xs) : cx;
+      };
+      row = [...row].sort((a, b) => callerX(a) - callerX(b));
+      y += placeRow(pos, row, cx, y) + ROW_GAP;
+    }
     else y += placeUnder(spec, pos, row, y, coreLeft, coreLeft + areaW, rightmost) + ROW_GAP;
   });
   y -= ROW_GAP;
@@ -641,6 +679,11 @@ function edgeGroup(r, pos, pairs) {
   return ty > sy ? 'S' : 'N';
 }
 
+/** Rough width in pixels of a relationship label (11px text, 9px technology line). */
+function labelWidth(r) {
+  return Math.max(chars(r.description), chars(r.technology) * 0.8) * 5.4;
+}
+
 function overlap(a, b) {
   const w = Math.min(a[0] + a[2], b[0] + b[2]) - Math.max(a[0], b[0]);
   const h = Math.min(a[1] + a[3], b[1] + b[3]) - Math.max(a[1], b[1]);
@@ -658,7 +701,7 @@ function labelSides(rs, pos, pairs) {
     const [sx, sy] = center(pos.get(r.from));
     const [tx, ty] = center(pos.get(r.to));
     const [mx, my] = [(sx + tx) / 2, (sy + ty) / 2];
-    const w = Math.max(chars(r.description), chars(r.technology) * 0.8) * 5.4;
+    const w = labelWidth(r);
     const h = r.technology ? 28 : 15;
     const boxes = {
       '': [mx - w / 2, my - h / 2, w, h], U: [mx - w / 2, my - h - 3, w, h], D: [mx - w / 2, my + 3, w, h],
