@@ -1,0 +1,53 @@
+{
+ "level": "context",
+ "title": "Internet Banking System",
+ "description": "The system context diagram for a fictional Internet Banking System.",
+ "elements": [
+  {
+   "id": "customer",
+   "kind": "person",
+   "name": "Personal Banking Customer",
+   "description": "A customer of the bank with one or more personal bank accounts."
+  },
+  {
+   "id": "ibs",
+   "kind": "system",
+   "name": "Internet Banking System",
+   "description": "Allows customers to view their bank accounts and make payments via the web."
+  },
+  {
+   "id": "ses",
+   "kind": "external_system",
+   "name": "Amazon Web Services Simple Email Service",
+   "description": "Cloud-based email service provider."
+  },
+  {
+   "id": "core",
+   "kind": "external_system",
+   "name": "Core Banking System",
+   "description": "Handles customer information, bank accounts, transactions, etc."
+  }
+ ],
+ "relationships": [
+  {
+   "from": "customer",
+   "to": "ibs",
+   "description": "Views account balances and makes payments using"
+  },
+  {
+   "from": "ibs",
+   "to": "ses",
+   "description": "Sends e-mails to customers using"
+  },
+  {
+   "from": "ibs",
+   "to": "core",
+   "description": "Gets bank account information from and makes payments using"
+  },
+  {
+   "from": "ses",
+   "to": "customer",
+   "description": "Sends e-mails to"
+  }
+ ]
+}

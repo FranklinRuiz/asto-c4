@@ -1,0 +1,82 @@
+{
+ "level": "dynamic",
+ "scope": "components",
+ "title": "Internet Banking System - Backend",
+ "description": "Summarises how the sign in feature works in the single-page application.",
+ "system": {
+  "name": "Internet Banking System"
+ },
+ "boundary": {
+  "name": "Backend"
+ },
+ "elements": [
+  {
+   "id": "ui",
+   "kind": "web_browser",
+   "in_system": true,
+   "name": "UI",
+   "technology": "JavaScript and Angular",
+   "description": "Single-page app that provides Internet banking to customers."
+  },
+  {
+   "id": "signin",
+   "kind": "component",
+   "inside": true,
+   "name": "Sign In API",
+   "technology": "Spring MVC",
+   "description": "API endpoint for customer sign in."
+  },
+  {
+   "id": "sec",
+   "kind": "component",
+   "inside": true,
+   "name": "Security Component",
+   "technology": "Spring Bean",
+   "description": "Provides functionality related to signing in, changing passwords, etc."
+  },
+  {
+   "id": "db",
+   "kind": "database",
+   "in_system": true,
+   "name": "Database",
+   "technology": "MySQL Database Schema",
+   "description": "User account information, access logs, etc."
+  }
+ ],
+ "relationships": [
+  {
+   "from": "ui",
+   "to": "signin",
+   "description": "Submits credentials to",
+   "technology": "JSON/HTTP"
+  },
+  {
+   "from": "signin",
+   "to": "sec",
+   "description": "Validates credentials using"
+  },
+  {
+   "from": "sec",
+   "to": "db",
+   "description": "select * from users where username = ?",
+   "technology": "MySQL protocol"
+  },
+  {
+   "from": "db",
+   "to": "sec",
+   "description": "Returns user data to",
+   "technology": "MySQL protocol"
+  },
+  {
+   "from": "sec",
+   "to": "signin",
+   "description": "Issues a session token if authentication succeeds"
+  },
+  {
+   "from": "signin",
+   "to": "ui",
+   "description": "Sends back a session token to",
+   "technology": "JSON/HTTP"
+  }
+ ]
+}

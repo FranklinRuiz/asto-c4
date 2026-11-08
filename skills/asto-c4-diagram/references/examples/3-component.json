@@ -1,0 +1,184 @@
+{
+ "level": "components",
+ "title": "Internet Banking System - Backend",
+ "description": "The component diagram for the Internet Banking System Backend.",
+ "system": {
+  "name": "Internet Banking System"
+ },
+ "boundary": {
+  "name": "Backend"
+ },
+ "elements": [
+  {
+   "id": "ui",
+   "kind": "web_browser",
+   "in_system": true,
+   "name": "UI",
+   "technology": "JavaScript and Angular",
+   "description": "Single-page app that provides Internet banking to customers."
+  },
+  {
+   "id": "stmtapi",
+   "kind": "component",
+   "inside": true,
+   "name": "Statement API",
+   "technology": "Spring MVC",
+   "description": "API endpoint for access to PDF statements."
+  },
+  {
+   "id": "signin",
+   "kind": "component",
+   "inside": true,
+   "name": "Sign In API",
+   "technology": "Spring MVC",
+   "description": "API endpoint for customer sign in."
+  },
+  {
+   "id": "accapi",
+   "kind": "component",
+   "inside": true,
+   "name": "Accounts Summary API",
+   "technology": "Spring MVC",
+   "description": "API endpoint for bank accounts summary information."
+  },
+  {
+   "id": "stmt",
+   "kind": "component",
+   "inside": true,
+   "name": "Statement Component",
+   "technology": "Spring Bean",
+   "description": "Provides access to PDF statements."
+  },
+  {
+   "id": "sec",
+   "kind": "component",
+   "inside": true,
+   "name": "Security Component",
+   "technology": "Spring Bean",
+   "description": "Provides functionality related to signing in, changing passwords, etc."
+  },
+  {
+   "id": "email",
+   "kind": "component",
+   "inside": true,
+   "name": "Email Component",
+   "technology": "Spring Bean",
+   "description": "Sends e-mails to users."
+  },
+  {
+   "id": "adapter",
+   "kind": "component",
+   "inside": true,
+   "name": "Core Banking System Adapter",
+   "technology": "Spring Bean",
+   "description": "A Java wrapper around the API of the Core Banking System."
+  },
+  {
+   "id": "store",
+   "kind": "bucket",
+   "in_system": true,
+   "name": "Statement Store",
+   "technology": "Amazon Web Services S3 Bucket",
+   "description": "Bank account statements rendered as PDF files."
+  },
+  {
+   "id": "db",
+   "kind": "database",
+   "in_system": true,
+   "name": "Database",
+   "technology": "MySQL Database Schema",
+   "description": "User account information, access logs, etc."
+  },
+  {
+   "id": "ses",
+   "kind": "external_system",
+   "name": "Amazon Web Services Simple Email Service",
+   "description": "Cloud-based email service provider."
+  },
+  {
+   "id": "core",
+   "kind": "external_system",
+   "name": "Core Banking System",
+   "description": "Handles core banking functions."
+  }
+ ],
+ "relationships": [
+  {
+   "from": "ui",
+   "to": "stmtapi",
+   "description": "Requests statements from",
+   "technology": "JSON/HTTP"
+  },
+  {
+   "from": "ui",
+   "to": "signin",
+   "description": "Makes sign in requests to",
+   "technology": "JSON/HTTP"
+  },
+  {
+   "from": "ui",
+   "to": "accapi",
+   "description": "Requests a list of bank accounts from",
+   "technology": "JSON/HTTP"
+  },
+  {
+   "from": "stmtapi",
+   "to": "stmt",
+   "description": "Requests statements from"
+  },
+  {
+   "from": "stmtapi",
+   "to": "sec",
+   "description": "Validates authentication token using"
+  },
+  {
+   "from": "signin",
+   "to": "sec",
+   "description": "Validates credentials using"
+  },
+  {
+   "from": "accapi",
+   "to": "sec",
+   "description": "Validates authentication token using"
+  },
+  {
+   "from": "accapi",
+   "to": "adapter",
+   "description": "Requests lists of bank accounts from"
+  },
+  {
+   "from": "stmt",
+   "to": "adapter",
+   "description": "Requests statement information from"
+  },
+  {
+   "from": "sec",
+   "to": "email",
+   "description": "Sends emails using"
+  },
+  {
+   "from": "stmt",
+   "to": "store",
+   "description": "Reads from and writes to",
+   "technology": "AWS S3 API/HTTP"
+  },
+  {
+   "from": "sec",
+   "to": "db",
+   "description": "Reads from and writes to",
+   "technology": "MySQL protocol"
+  },
+  {
+   "from": "email",
+   "to": "ses",
+   "description": "Sends e-mails to customers using",
+   "technology": "AWS SES API/HTTP"
+  },
+  {
+   "from": "adapter",
+   "to": "core",
+   "description": "Makes API requests to",
+   "technology": "XML/HTTPS"
+  }
+ ]
+}

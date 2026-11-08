@@ -27,6 +27,9 @@ ENTRIES = {
     'relationship': 'Relationship with description and technology',
     'title_context': 'System context diagram title', 'title_containers': 'Containers diagram title',
     'title_components': 'Components diagram title',
+    'deployment_node': 'Deployment node boundary',
+    'title_dynamic': 'Dynamic diagram title',
+    'title_deployment': 'Deployment diagram title',
 }
 
 

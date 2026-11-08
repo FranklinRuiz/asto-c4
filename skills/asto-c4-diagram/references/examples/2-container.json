@@ -1,0 +1,120 @@
+{
+ "level": "containers",
+ "title": "Internet Banking System",
+ "description": "The container diagram for the Internet Banking System.",
+ "boundary": {
+  "name": "Internet Banking System"
+ },
+ "elements": [
+  {
+   "id": "cust",
+   "kind": "person",
+   "name": "Personal Banking Customer",
+   "description": "A customer of the bank with one or more personal bank accounts."
+  },
+  {
+   "id": "static",
+   "kind": "folder",
+   "inside": true,
+   "name": "Static Content",
+   "technology": "Directory",
+   "description": "HTML, CSS, JavaScript, etc."
+  },
+  {
+   "id": "ui",
+   "kind": "web_browser",
+   "inside": true,
+   "name": "UI",
+   "technology": "JavaScript and Angular",
+   "description": "Single-page app that provides Internet banking to customers."
+  },
+  {
+   "id": "be",
+   "kind": "server_app",
+   "inside": true,
+   "name": "Backend",
+   "technology": "Java and Spring Boot",
+   "description": "Provides Internet banking functionality via a JSON/HTTP API."
+  },
+  {
+   "id": "st",
+   "kind": "bucket",
+   "inside": true,
+   "name": "Statement Store",
+   "technology": "Amazon Web Services S3 Bucket",
+   "description": "Bank account statements rendered as PDF files."
+  },
+  {
+   "id": "db",
+   "kind": "database",
+   "inside": true,
+   "name": "Database",
+   "technology": "MySQL Database Schema",
+   "description": "User account information, access logs, etc."
+  },
+  {
+   "id": "ses",
+   "kind": "external_system",
+   "name": "Amazon Web Services Simple Email Service",
+   "description": "Cloud-based email service provider."
+  },
+  {
+   "id": "core",
+   "kind": "external_system",
+   "name": "Core Banking System",
+   "description": "Handles core banking functions."
+  }
+ ],
+ "relationships": [
+  {
+   "from": "cust",
+   "to": "static",
+   "description": "Loads the UI from"
+  },
+  {
+   "from": "cust",
+   "to": "ui",
+   "description": "Views account balances and makes payments using"
+  },
+  {
+   "from": "static",
+   "to": "ui",
+   "description": "Delivers"
+  },
+  {
+   "from": "ui",
+   "to": "be",
+   "description": "Makes API requests to",
+   "technology": "JSON/HTTP"
+  },
+  {
+   "from": "be",
+   "to": "st",
+   "description": "Reads from and writes to",
+   "technology": "AWS S3 API/HTTP"
+  },
+  {
+   "from": "be",
+   "to": "db",
+   "description": "Reads from and writes to",
+   "technology": "MySQL protocol"
+  },
+  {
+   "from": "be",
+   "to": "ses",
+   "description": "Sends e-mails to customers using",
+   "technology": "AWS SES API/HTTP"
+  },
+  {
+   "from": "be",
+   "to": "core",
+   "description": "Makes API requests to",
+   "technology": "XML/HTTPS"
+  },
+  {
+   "from": "ses",
+   "to": "cust",
+   "description": "Sends e-mails to"
+  }
+ ]
+}

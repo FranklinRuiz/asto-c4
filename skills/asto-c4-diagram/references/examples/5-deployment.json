@@ -1,0 +1,175 @@
+{
+ "level": "deployment",
+ "title": "Internet Banking System - Development",
+ "description": "An example development deployment scenario for the Internet Banking System.",
+ "nodes": [
+  {
+   "id": "wan",
+   "name": "Big Bank Wide Area Network"
+  },
+  {
+   "id": "laptop",
+   "name": "Developer Laptop",
+   "technology": "Microsoft Windows 11 or Apple macOS",
+   "parent": "wan"
+  },
+  {
+   "id": "webcont",
+   "name": "Web Server Container",
+   "technology": "Docker Container",
+   "parent": "laptop"
+  },
+  {
+   "id": "web",
+   "name": "Web Server",
+   "technology": "nginx",
+   "parent": "webcont"
+  },
+  {
+   "id": "browser",
+   "name": "Web Browser",
+   "technology": "Chrome, Firefox, Safari, or Edge",
+   "parent": "laptop"
+  },
+  {
+   "id": "mockses",
+   "name": "Mock Simple Email Service",
+   "technology": "Docker Container",
+   "parent": "laptop"
+  },
+  {
+   "id": "jvm",
+   "name": "Java Virtual Machine",
+   "technology": "Eclipse Temurin - JDK 21 - LTS",
+   "parent": "laptop"
+  },
+  {
+   "id": "stcont",
+   "name": "Statement Store Server Container",
+   "technology": "Docker Container",
+   "parent": "laptop"
+  },
+  {
+   "id": "stsrv",
+   "name": "Statement Store Server",
+   "technology": "MinIO",
+   "parent": "stcont"
+  },
+  {
+   "id": "dbcont",
+   "name": "Database Server Container",
+   "technology": "Docker Container",
+   "parent": "laptop"
+  },
+  {
+   "id": "dbsrv",
+   "name": "Database Server",
+   "technology": "MySQL 8.4 LTS",
+   "parent": "dbcont"
+  },
+  {
+   "id": "dc",
+   "name": "Big Bank Data Center",
+   "parent": "wan"
+  },
+  {
+   "id": "cbdev",
+   "name": "corebanking-dev",
+   "technology": "Ubuntu 24.04 LTS",
+   "parent": "dc"
+  }
+ ],
+ "elements": [
+  {
+   "id": "static",
+   "kind": "folder",
+   "node": "web",
+   "name": "Static Content",
+   "technology": "Directory",
+   "description": "HTML, CSS, JavaScript, etc."
+  },
+  {
+   "id": "ui",
+   "kind": "web_browser",
+   "node": "browser",
+   "name": "UI",
+   "technology": "JavaScript and Angular",
+   "description": "Single-page app that provides Internet banking to customers."
+  },
+  {
+   "id": "ses",
+   "kind": "external_system",
+   "node": "mockses",
+   "name": "Amazon Web Services Simple Email Service",
+   "description": "Cloud-based email service provider."
+  },
+  {
+   "id": "backend",
+   "kind": "server_app",
+   "node": "jvm",
+   "name": "Backend",
+   "technology": "Java and Spring Boot",
+   "description": "Provides Internet banking functionality via a JSON/HTTP API."
+  },
+  {
+   "id": "store",
+   "kind": "bucket",
+   "node": "stsrv",
+   "name": "Statement Store",
+   "technology": "Amazon Web Services S3 Bucket",
+   "description": "Bank account statements rendered as PDF files."
+  },
+  {
+   "id": "db",
+   "kind": "database",
+   "node": "dbsrv",
+   "name": "Database",
+   "technology": "MySQL Database Schema",
+   "description": "User account information, access logs, etc."
+  },
+  {
+   "id": "core",
+   "kind": "external_system",
+   "node": "cbdev",
+   "name": "Core Banking System",
+   "description": "Handles core banking functions."
+  }
+ ],
+ "relationships": [
+  {
+   "from": "static",
+   "to": "ui",
+   "description": "Delivers"
+  },
+  {
+   "from": "ui",
+   "to": "backend",
+   "description": "Makes API requests to",
+   "technology": "JSON/HTTP"
+  },
+  {
+   "from": "backend",
+   "to": "ses",
+   "description": "Sends e-mails to customers using",
+   "technology": "AWS SES API/HTTP"
+  },
+  {
+   "from": "backend",
+   "to": "store",
+   "description": "Reads from and writes to",
+   "technology": "AWS S3 API/HTTP"
+  },
+  {
+   "from": "backend",
+   "to": "db",
+   "description": "Reads from and writes to",
+   "technology": "MySQL protocol"
+  },
+  {
+   "from": "backend",
+   "to": "core",
+   "description": "Makes API requests to",
+   "technology": "XML/HTTPS"
+  }
+ ]
+}

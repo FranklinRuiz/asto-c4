@@ -135,9 +135,9 @@ Elements keep their text as properties, and draw.io builds the label from them.
 
 ## AI skill: diagrams from a conversation
 
-The repository includes **`asto-c4-diagram`**, an [Agent Skill](https://agentskills.io/) that interviews you about your system and builds a C4 diagram in the Asto C4 notation. It works with Claude (Claude Code and the Claude apps) and GitHub Copilot.
+The repository includes **`asto-c4-diagram`**, an [Agent Skill](https://agentskills.io/) that interviews you about your system and builds a C4 diagram in the Asto C4 notation: system context, container, component, dynamic or deployment. It works with Claude (Claude Code and the Claude apps) and GitHub Copilot.
 
-1. Pick the level: **System Context** (1), **Container** (2) or **Component** (3).
+1. Pick the diagram: **System Context**, **Container**, **Component**, **Dynamic** or **Deployment**.
 2. Answer a few rounds of questions, or let the agent read your codebase and confirm what it finds.
 3. Review the summary of people, elements and relationships.
 4. Get a `.txt` file. In draw.io, open **Arrange → Insert → Advanced → CSV…**, replace the sample with the file's content and click **Import**.
