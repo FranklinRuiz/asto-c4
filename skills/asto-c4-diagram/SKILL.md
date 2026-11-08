@@ -9,7 +9,7 @@ Build one C4 diagram (system context, container, component, dynamic or deploymen
 
 Talk to the user in their language. Diagram text goes in the language they choose.
 
-Requires Python 3 (standard library only) to run the bundled script. Paths such as `scripts/build_csv.py` are inside this skill's folder; run them with their full path.
+Requires Node.js 18 or later to run the bundled script (no packages to install). Paths such as `scripts/build_csv.mjs` are inside this skill's folder; run them with their full path.
 
 **Asking questions:** if your environment has a tool for asking the user multiple-choice questions, use it; otherwise ask in plain chat with short numbered options. Either way, wait for the answers before moving on.
 
@@ -67,14 +67,25 @@ A C4 diagram must let anyone understand the solution without extra explanation. 
 - **Every person has a way in.** Each person uses at least one element of the system (or, on level 3, the diagram shows how requests arrive).
 - **Every data store is used.** Each database, bucket or queue is read or written by something.
 
+### Only what is needed (a tip, not a rule)
+
+A good C4 diagram shows only what helps someone understand the solution at that level. When the diagram gets crowded, tell the user in a short message, in their language, and let them decide; never drop elements without their consent. Give the tip when any of these hold:
+
+- more than about 15 elements in total;
+- more than about 10 elements inside the boundary (containers or components);
+- more than about 6 external systems;
+- cross-cutting services (audit, monitoring, logging, configuration, authentication used by every request) that do not change how the solution works.
+
+Example message: "Tip: un buen C4 muestra solo lo necesario para entender la solución. Este diagrama tiene 18 elementos; ¿quieres quitar Auditoría y Monitoreo (transversales) o agrupar los adaptadores? Si prefieres dejarlos, lo genero así." Suggest concrete options: leave out cross-cutting services, group similar elements (e.g. several adapters as one "Integration adapters" component), or split into two diagrams (e.g. one component diagram per container, or a dynamic diagram for one flow). Give the tip once; if the user keeps everything, generate it as is.
+
 ## 3. Generate
 
 1. Write the spec as JSON in a temporary folder, following `references/spec-format.md`. `references/examples/` has the five c4model.com Internet Banking diagrams (system context, container, component, dynamic, deployment) as specs: use them as models for structure, wording and level of detail.
 2. Run:
    ```bash
-   python scripts/build_csv.py spec.json "<output>.txt"
+   node scripts/build_csv.mjs spec.json "<output>.txt"
    ```
-   Fix any `error:` it prints (unknown kind, missing id, bad relationship) and rerun. Act on any `warning:` too: shorten long descriptions or add the missing relationships, then rerun.
+   Fix any `error:` it prints (unknown kind, missing id, bad relationship) and rerun. Act on any `warning:` too: shorten long descriptions or add the missing relationships, then rerun. Warnings about too many elements are for the user to decide: pass them on as the tip from "Only what is needed" (unless you already gave it) and keep the diagram as they choose.
 3. Save the output in the user's working folder as `c4-<diagram>-<system-slug>.txt` (e.g. `c4-deployment-internet-banking-development.txt`) unless they name another place.
 
 ## 4. Deliver
@@ -97,3 +108,4 @@ Tell the user, briefly:
 - Name relationships with a verb phrase that ends in a preposition so it reads source → target: "Makes API requests to", "Reads from and writes to", "Sends e-mails to customers using".
 - Relationships are one-directional, labelled with a verb phrase that reads source → target ("Sends e-mails to"), plus technology for levels 2–3.
 - Keep each diagram readable: about 5–15 elements. If the user lists far more, suggest grouping or splitting.
+- Keep external systems to about 6. Cross-cutting services (audit, monitoring, logging, authentication used by every request) add lines without explaining the solution: ask whether they matter to this view, and otherwise leave them out or mention them in the description. External systems reached only through another external (a clearing house that settles with the central bank) may stay: they are drawn in a second column next to their partner.

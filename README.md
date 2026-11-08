@@ -142,7 +142,7 @@ The repository includes **`asto-c4-diagram`**, an [Agent Skill](https://agentski
 3. Review the summary of people, elements and relationships.
 4. Get a `.txt` file. In draw.io, open **Arrange → Insert → Advanced → CSV…**, replace the sample with the file's content and click **Import**.
 
-The imported elements are the same as the ones in the library, so you can keep editing them with **Edit Data**. The skill needs Python 3 to build the file.
+The imported elements are the same as the ones in the library, so you can keep editing them with **Edit Data**. The skill needs Node.js 18 or later to build the file (the same Node that runs `npx`); no packages to install.
 
 ### Install
 
@@ -209,7 +209,7 @@ Relationships are gray dashed lines with a filled arrowhead. The description and
 After changing the library, refresh the styles the skill uses:
 
 ```bash
-python skills/asto-c4-diagram/scripts/sync_styles.py "Asto C4"
+node skills/asto-c4-diagram/scripts/sync_styles.mjs "Asto C4"
 ```
 
 ---

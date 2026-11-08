@@ -1,4 +1,4 @@
-# Spec format for `build_csv.py`
+# Spec format for `build_csv.mjs`
 
 ```json
 {
@@ -94,7 +94,8 @@ The script places elements like the c4model.com examples:
 - **Top:** people, plus outside elements that only call into the system (e.g. the SPA on a component diagram).
 - **Middle:** the system in scope (level 1), or the boundary and its contents (levels 2–3), in rows by call depth: what the outside calls first, what those call below. Each element sits under what calls it; elements that talk to external systems take the rightmost column; an element that a relationship in its row would jump over moves to its own row.
 - **Level 3 with `system`:** the container boundary nested in the system boundary, `in_system` callers above it and data stores below it, each under the component that uses it.
-- **Right:** external systems in one column, each at the height of what it talks to. Those that talk to the people sit higher.
+- **Right:** external systems in a column, each at the height of what it talks to. Those that talk to the people sit higher. External systems reached only through another external go in a second column, next to their partner.
+- **Labels:** each relationship label sits in the middle of its arrow; when that spot is taken by another label or an element, it moves beside the line.
 - **Bottom-left:** the diagram title.
 
 - **Dynamic:** like its `scope`. Two-way pairs (a request and its reply) run side by side, with their labels on opposite sides.
