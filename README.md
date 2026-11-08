@@ -18,6 +18,7 @@
 - [Getting started](#getting-started)
 - [Elements](#elements)
 - [Editing elements](#editing-elements)
+- [AI skill: diagrams from a conversation](#ai-skill-diagrams-from-a-conversation)
 - [Notation](#notation)
 - [Repository contents](#repository-contents)
 - [Contributing](#contributing)
@@ -132,6 +133,50 @@ Elements keep their text as properties, and draw.io builds the label from them.
 
 ---
 
+## AI skill: diagrams from a conversation
+
+The repository includes **`asto-c4-diagram`**, an [Agent Skill](https://agentskills.io/) that interviews you about your system and builds a C4 diagram in the Asto C4 notation. It works with Claude (Claude Code and the Claude apps) and GitHub Copilot.
+
+1. Pick the level: **System Context** (1), **Container** (2) or **Component** (3).
+2. Answer a few rounds of questions, or let the agent read your codebase and confirm what it finds.
+3. Review the summary of people, elements and relationships.
+4. Get a `.txt` file. In draw.io, open **Arrange → Insert → Advanced → CSV…**, replace the sample with the file's content and click **Import**.
+
+The imported elements are the same as the ones in the library, so you can keep editing them with **Edit Data**. The skill needs Python 3 to build the file.
+
+### Install
+
+**Quick install (any agent)** — with [Node.js](https://nodejs.org/) 22.20 or later, run this in your project:
+
+```bash
+npx skills add FranklinRuiz/asto-c4 --skill asto-c4-diagram
+```
+
+The [`skills`](https://github.com/vercel-labs/skills) CLI detects your agents and asks where to install. Add `-g` to install it for all your projects, or pick the agent with `-a`:
+
+```bash
+npx skills add FranklinRuiz/asto-c4 --skill asto-c4-diagram -a claude-code -g
+```
+
+```bash
+npx skills add FranklinRuiz/asto-c4 --skill asto-c4-diagram -a github-copilot -g
+```
+
+**Claude Code plugin** — add this repository as a plugin marketplace and install the plugin:
+
+```text
+/plugin marketplace add FranklinRuiz/asto-c4
+/plugin install asto-c4@asto-c4
+```
+
+Then ask for a C4 diagram, or run `/asto-c4:asto-c4-diagram`.
+
+**Claude apps** — zip the [`skills/asto-c4-diagram`](skills/asto-c4-diagram) folder and upload it under **Settings → Capabilities → Skills**.
+
+**Manual** — copy the [`skills/asto-c4-diagram`](skills/asto-c4-diagram) folder into your agent's skills directory: `.claude/skills/` or `~/.claude/skills/` for Claude Code, `.github/skills/` or `~/.copilot/skills/` for GitHub Copilot.
+
+---
+
 ## Notation
 
 Colors follow the official C4 model examples:
@@ -156,8 +201,16 @@ Relationships are gray dashed lines with a filled arrowhead. The description and
 | [`Asto-C4-Library.xml`](Asto-C4-Library.xml) | The same library, for **File → Open Library…** |
 | [`Asto-C4-Example-diagram.drawio`](Asto-C4-Example-diagram.drawio) | Example diagram built with the library |
 | `Asto-C4.png`, `Asto-C4-Screenshot.png` | Images used in this README |
+| [`skills/asto-c4-diagram`](skills/asto-c4-diagram) | The AI skill that builds C4 diagrams as draw.io CSV imports |
+| [`.claude-plugin`](.claude-plugin) | Plugin and marketplace manifests for Claude Code |
 
 `Asto C4` and `Asto-C4-Library.xml` have identical content. Keep them in sync when you change the library.
+
+After changing the library, refresh the styles the skill uses:
+
+```bash
+python skills/asto-c4-diagram/scripts/sync_styles.py "Asto C4"
+```
 
 ---
 

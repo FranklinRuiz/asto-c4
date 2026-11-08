@@ -1,0 +1,9 @@
+{
+  "name": "asto-c4",
+  "version": "1.0.0",
+  "description": "Build C4 model diagrams (system context, containers, components) by answering a few questions, delivered as a draw.io CSV import in the Asto C4 notation.",
+  "author": { "name": "Franklin Ruiz", "url": "https://github.com/FranklinRuiz" },
+  "homepage": "https://github.com/FranklinRuiz/asto-c4",
+  "repository": "https://github.com/FranklinRuiz/asto-c4",
+  "keywords": ["c4-model", "drawio", "diagrams", "software-architecture"]
+}

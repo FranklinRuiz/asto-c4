@@ -1,0 +1,142 @@
+{
+ "person": {
+  "title": "Person",
+  "style": "shape=stencil(pZPbbsMgDIafJpedOCRpcjm13Xu4qbeg0oAga7c9/SAQrSwju6gUKbJ/bH82puA724PGgpEBLljwfcEY2FFtunKj0Vg1OIdTb0FihAS7DzZtog1WYzcG5xWMgKPEoNjRqDPexGmMMWLo0YjRq/xQkGd3xn98d4Tu/GbU+3BKhFmeFOOrMPIRy4cSn8Gqq4SVtk3KSsvIajorvmKznE3Olz9LvgopA//vE3znPBlgF6cMrnRi4Yq5kvfjcq38jI08basVVJC6B9/c9I8R9VqEBp96IczyRXnIedIlSUZNaT7znECKYSXBtv03QUpA60cRFhlWGKb7zUxovqRcpEH3gExWRimFtndcVZtiJVvcsGSJmwfWdbGVkze8f374Bg==);spacingTop=65;verticalAlign=middle;fillColor=#ffffff;strokeColor=#297E06;fontColor=#297E06;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;points=[[0.5,0,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0]];",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 200,
+  "height": 180
+ },
+ "external_person": {
+  "title": "External Person",
+  "style": "shape=stencil(pZPbbsMgDIafJpedOCRpcjm13Xu4qbeg0oAga7c9/SAQrSwju6gUKbJ/bH82puA724PGgpEBLljwfcEY2FFtunKj0Vg1OIdTb0FihAS7DzZtog1WYzcG5xWMgKPEoNjRqDPexGmMMWLo0YjRq/xQkGd3xn98d4Tu/GbU+3BKhFmeFOOrMPIRy4cSn8Gqq4SVtk3KSsvIajorvmKznE3Olz9LvgopA//vE3znPBlgF6cMrnRi4Yq5kvfjcq38jI08basVVJC6B9/c9I8R9VqEBp96IczyRXnIedIlSUZNaT7znECKYSXBtv03QUpA60cRFhlWGKb7zUxovqRcpEH3gExWRimFtndcVZtiJVvcsGSJmwfWdbGVkze8f374Bg==);spacingTop=65;verticalAlign=middle;fillColor=#ffffff;strokeColor=#1A849C;fontColor=#1A849C;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;points=[[0.5,0,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0]];",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 200,
+  "height": 180
+ },
+ "system": {
+  "title": "Software System",
+  "style": "rounded=1;arcSize=7;fillColor=#ffffff;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=5;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 120
+ },
+ "external_system": {
+  "title": "External Software System",
+  "style": "rounded=1;arcSize=7;fillColor=#ffffff;strokeColor=#BF101D;fontColor=#BF101D;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=5;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 120
+ },
+ "container": {
+  "title": "Container",
+  "style": "rounded=1;arcSize=7;fillColor=#ffffff;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=5;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 120
+ },
+ "web_browser": {
+  "title": "Web Browser Container",
+  "style": "shape=stencil(vVTbTsQgFPwaHmu4Vd1H0939D8oeLVksDaBVv14uNcrKdmOi8lLODJwZBlLEOjeICRDFo3gExLaIUuG8aSRvZuib3prZgQ1oWDJnnlKc6yHXhC+1cBNIn8FnYZXoNWTGeWuOMKuDX/aocQCrfGTZDuE7FHtixLpeyOODNU/joSA+6MTYqELxS261iL8W1UWrVjr1thyYX7UJ3Vcl75XW2f/pCtYF5IzhsM9YWDlJbCuNNiFbnL/JC6Jsn8aKo0oIbRFCnH9NgZykQFglBXYhg3McaK0mB59ebgsvN4WVTWFk81uSlPy/JuN/rlm5aL6WLrnmFd3ymlv8QzPplX97zAnN/w62ewc=);fillColor=#1168BD;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=8;spacingTop=25;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 160
+ },
+ "server_app": {
+  "title": "Server-side App Container",
+  "style": "shape=stencil(lVPbcsIgFPwaHp1BiE5fO6n+xxFPGypCBqi2/fpyy1RiqfoSsmdZdjkA4b0bYETCqIYjEv5CGAPnzUJ0CzegUgEH8pwZ1tGMh4yXrGBwIwqfiyewEnYKM+O8NQc8y70vGqkHtNJHlm8IfSZxDUp4vwNxeLPmQ+8rYqITY6MLo5/FPlt8VWiKyp/qqMuCwQonv8tWu1Tb/mn4KpXK6eczeB8qjbhBZyz+sw8lNb4bqQNKQ8qRp7ezRJGAMYD4vUsyQuz4FTHRR3PCi07OWkmbC18m+tXPj2L9oH7mH/9v6Ov8bFXrVw/68/W9+nT2jd6Gx9S+L1fXIlXz6+ObHw==);fillColor=#ffffff;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=5;spacingTop=12;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 120
+ },
+ "folder": {
+  "title": "Folder Container",
+  "style": "shape=stencil(xVTRcoMgEPwaHpkhYKyvHZv8x0VRmRBxgEbTry8KzoQk2qbtTN+8W5bbhUXEctNAxxElLZw4Ym+IUjBW4SLBlZIl167h0N5DNCG+bny9oaEG0/HC+uYZtICD5B4xVqsj70VpA0e0DdfCjijbIfKKxj0IYvkBimOt1XtbRsAMT4gep1AyhPF+xGUWE2tlWayVvAStujDiI5hNpt7+4cRKSOnl365guess6HU8pfmKkQ7Go7gDZvikzvzKInnkcb/Cl6Jd5qdf0t3puA8d6FvP1peoHDAMwmCtLFihWo+FQRJ0zbHbBVcS6ggyPefdVTtc36x0Gzt90mi2eZL+b0az9MkruTGafjcRU0oX0raW7h8FNf1dTilL/sbWyoO9e5dT1/8A2e4T);fillColor=#ffffff;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=5;spacingTop=12;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 120
+ },
+ "database": {
+  "title": "Data Container",
+  "style": "shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=5;spacingTop=-5;verticalAlign=middle;",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 120
+ },
+ "bucket": {
+  "title": "Bucket Container",
+  "style": "shape=stencil(lVPRjoMgEPwaHkk46IP32Hi9/1jpVolUDNDq/f2hQFLOs03f3B1mdhZGImrXwYiEswGuSMQX4RycN1QeaHOTPfrQCOgUIX5gse5i/cFTDW5E6WPzDlZBozEizlvT46TOPnHU0KFVq644EXYkiwYjom5A9q01t+FcABkeYVHYABm+mvuyxpyMxeE/2eZafj+hazU80quSz6qXAmBl+LBZgMWRzGaJ5GimMCtHrfHglRkimC5Rg22RBiF60dAWkJsQx207TeOcv+23XJiLz3dvTGrj8P8jog79nfcS9UVpHVPxl73ydmIQeMbik3yg1mp0+xkogyyqIsh8f9+Xhje+1m78r8TpFw==);fillColor=#ffffff;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=5;spacingLeft=20;spacingRight=20;spacingTop=16;",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 120
+ },
+ "message_bus": {
+  "title": "Message Bus Container",
+  "style": "shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=15;direction=south;fillColor=#ffffff;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=5;verticalAlign=middle;",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 120
+ },
+ "mobile_app": {
+  "title": "Mobile App Container",
+  "style": "shape=stencil(tVTbcoMgFPwaHnUQvPS1Y5P/IEoqEwQG7CTt1xeFTHOmwXba6IuzezzLugdAtHUDMxwRrNjIEX1BhDA36awrs1EfhOQZM8aT/oshlIsSB3wOmJCImTO8mwJ5FBfeB9pNVp/4WfRTFBBq4FZMc5XuEH5GswBGtO20Ul5BaOVA5abuxZhQvhdfghjOq7DMe8QBGb/CyCduo+fAIrL/vTCUzZtHCRdbCeOcwCyKxylvJtz8Q5m2nkltGtoeWHd6tfpN9Xf9LBU779jEaAq4zYsneAxoxMx2TnzEs1Nek0qlcBRSdlpq62F4L32I0P3y/NwdzlMqjsRP+1Zt+UoaXEphHP/KogZZ1BUIo8AwC7xuO2l5ZRaz4K0BuH5TQwPk7jA2cIUbYKuCd2EJXF0vSmCq+mtWy3i/TXFhwx2+EJ8=);fillColor=#ffffff;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=5;spacingLeft=30;spacingRight=30;",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 240,
+  "height": 160
+ },
+ "component": {
+  "title": "Component",
+  "style": "shape=stencil(rZLBDsIgDIafhjsr8+AZ53vgVh3ZBgugU59ethINy7wYb/3/pv2/EpiQvlUjMuBGDcjEgQHIMkpph9EaNCEaUU7UAtiRbkkXwEkrP2IdyLwpp9WpR+r44GyHk25CmtGmRaeXvaJiQtbWmDirrfEMjuSdVN1dnL2ahvRSujkB+D1FJ5IHSZ5zFvwLp6u9fqZDaUOKjMU69WwdZlr3PZ3zntoA4xlXkYOJFVe5gTU7H65fQmH//9BYrN8jWvR7RPUC);fillColor=#ffffff;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=4;spacingLeft=26;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div><div style=\"font-size: 6px\"><br></div><div style=\"font-size: 11px\">%c4Description%</div>",
+  "width": 225,
+  "height": 120
+ },
+ "infrastructure_node": {
+  "title": "Infrastructure Node",
+  "style": "ellipse;fillColor=#ffffff;strokeColor=#444444;fontColor=#444444;strokeWidth=2;whiteSpace=wrap;html=1;metaEdit=1;resizable=0;rotatable=0;allowArrows=0;fontFamily=Helvetica;fontSize=11;align=center;spacing=10;",
+  "label": "<font style=\"font-size: 16px\"><b>%c4Name%</b></font><br><div><font style=\"font-size: 11px\">[%c4Type%: %c4Technology%]</font></div>",
+  "width": 240,
+  "height": 120
+ },
+ "system_boundary": {
+  "title": "System scope boundary",
+  "style": "rounded=1;arcSize=9;absoluteArcSize=1;fillColor=none;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=1.5;whiteSpace=wrap;html=1;align=left;verticalAlign=bottom;spacing=10;labelBackgroundColor=none;metaEdit=1;rotatable=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;pointerEvents=1;container=1;collapsible=0;fontFamily=Helvetica;fontSize=11;",
+  "label": "<div style=\"font-size: 14px\" align=\"left\"><b>%c4Name%</b></div><div align=\"left\"><font style=\"font-size: 10px\">[%c4Application%]</font></div>",
+  "width": 260,
+  "height": 210
+ },
+ "container_boundary": {
+  "title": "Container scope boundary",
+  "style": "rounded=1;arcSize=9;absoluteArcSize=1;fillColor=none;strokeColor=#1168BD;fontColor=#1168BD;strokeWidth=1.5;whiteSpace=wrap;html=1;align=left;verticalAlign=bottom;spacing=10;labelBackgroundColor=none;metaEdit=1;rotatable=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;pointerEvents=1;container=1;collapsible=0;fontFamily=Helvetica;fontSize=11;",
+  "label": "<div style=\"font-size: 14px\" align=\"left\"><b>%c4Name%</b></div><div align=\"left\"><font style=\"font-size: 10px\">[%c4Application%]</font></div>",
+  "width": 260,
+  "height": 210
+ },
+ "relationship": {
+  "title": "Relationship with description and technology",
+  "style": "endArrow=block;endFill=1;html=1;fontSize=11;fontFamily=Helvetica;fontColor=#444444;strokeColor=#444444;strokeWidth=1.5;dashed=1;dashPattern=8 6;labelBackgroundColor=#ffffff;metaEdit=1;jumpStyle=arc;jumpSize=14;rounded=0;",
+  "label": "<div>%c4Description%</div><div><font style=\"font-size: 9px\">[%c4Technology%]</font></div>",
+  "width": 240,
+  "height": 1
+ },
+ "title_context": {
+  "title": "System context diagram title",
+  "style": "text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontColor=#444444;metaEdit=1;allowArrows=0;resizable=1;connectable=0;rotatable=0;",
+  "label": "<div><b><font style=\"font-size: 16px\">%c4Name%</font></b></div><div><font style=\"font-size: 12px\">%c4Description%</font></div>",
+  "width": 280,
+  "height": 44
+ },
+ "title_containers": {
+  "title": "Containers diagram title",
+  "style": "text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontColor=#444444;metaEdit=1;allowArrows=0;resizable=1;connectable=0;rotatable=0;",
+  "label": "<div><b><font style=\"font-size: 16px\">%c4Name%</font></b></div><div><font style=\"font-size: 12px\">%c4Description%</font></div>",
+  "width": 280,
+  "height": 44
+ },
+ "title_components": {
+  "title": "Components diagram title",
+  "style": "text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontColor=#444444;metaEdit=1;allowArrows=0;resizable=1;connectable=0;rotatable=0;",
+  "label": "<div><b><font style=\"font-size: 16px\">%c4Name%</font></b></div><div><font style=\"font-size: 12px\">%c4Description%</font></div>",
+  "width": 280,
+  "height": 44
+ }
+}

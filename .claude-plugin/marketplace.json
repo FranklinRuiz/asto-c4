@@ -1,0 +1,15 @@
+{
+  "name": "asto-c4",
+  "description": "C4 model tooling for draw.io from the Asto C4 library.",
+  "owner": {
+    "name": "Franklin Ruiz",
+    "url": "https://github.com/FranklinRuiz"
+  },
+  "plugins": [
+    {
+      "name": "asto-c4",
+      "source": "./",
+      "description": "Build C4 model diagrams (system context, containers, components) by answering a few questions, delivered as a draw.io CSV import in the Asto C4 notation."
+    }
+  ]
+}
