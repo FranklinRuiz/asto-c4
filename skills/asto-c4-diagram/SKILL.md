@@ -13,11 +13,13 @@ Requires Python 3 (standard library only) to run the bundled script. Paths such 
 
 **Asking questions:** if your environment has a tool for asking the user multiple-choice questions, use it; otherwise ask in plain chat with short numbered options. Either way, wait for the answers before moving on.
 
+Respect the limits of such tools, or the call fails with invalid parameters. Claude Code's AskUserQuestion takes **at most 4 questions per call, 2 to 4 options per question** (it adds "Other" by itself, so never add one), and a **header of 12 characters or fewer**. When there are more choices than fit, group them and ask a follow-up, as in step 1.
+
 ## 1. Ask what to draw
 
 Ask these together in the first round:
 
-- **Diagram**: System Context (level 1), Container (level 2), Component (level 3), Dynamic (how a feature or use case flows, step by step) or Deployment (where the containers run in one environment).
+- **Diagram**, with exactly these 4 options: System Context (level 1), Container (level 2), Component (level 3), and "Dynamic or Deployment". If they pick the last one, ask a follow-up with 2 options: Dynamic (how a feature or use case flows, step by step) or Deployment (where the containers run in one environment).
 - **Language** of the diagram text (Spanish / English).
 - **Starting point**: describe it from scratch, or read it from the current codebase / a document they point to. If they choose the codebase, explore it first (entry points, deployables, databases, queues, external API clients) and propose the elements instead of asking for each one; then ask only to confirm or correct.
 
