@@ -1,0 +1,413 @@
+{
+ "version": "12.0",
+ "source": "https://bian.org/servicelandscape-12-0-0/views/view_51891.html",
+ "businessAreas": {
+  "Sales and Service": {
+   "Channel Specific": [
+    "Branch Location Management",
+    "Contact Center Management",
+    "Branch Network Management",
+    "eBranch Management",
+    "Advanced Voice Services Management",
+    "ATM Network Management",
+    "Contact Center Operations",
+    "Branch Location Operations",
+    "eBranch Operations",
+    "Advanced Voice Services Operations",
+    "ATM Network Operations",
+    "Branch Currency Management",
+    "Branch Currency Distribution",
+    "Product Inventory Item Management",
+    "Product Inventory Distribution",
+    "Card Terminal Administration",
+    "Card Terminal Operation"
+   ],
+   "Cross Channel": [
+    "Party Authentication",
+    "Transaction Authorization",
+    "Point of Service",
+    "Servicing Event History",
+    "Contact Routing",
+    "Session Dialogue",
+    "Interactive Help",
+    "Contact Handler",
+    "Customer Workbench",
+    "Servicing Activity Analysis",
+    "Service Directory"
+   ],
+   "Marketing": [
+    "Business Development",
+    "Brand Management",
+    "Advertising",
+    "Promotional Events",
+    "Prospect Campaign Design",
+    "Customer Campaign Management",
+    "Customer Campaign Design",
+    "Customer Surveys",
+    "Prospect Campaign Management"
+   ],
+   "Sales": [
+    "Prospect Campaign Execution",
+    "Party Lifecycle Management",
+    "Lead and Opportunity Management",
+    "Customer Campaign Execution",
+    "Customer Offer",
+    "Sales Planning",
+    "Underwriting",
+    "Commission Agreement",
+    "Commissions",
+    "Product Matching",
+    "Product Expert Sales Support",
+    "Product Sales Support",
+    "Sales Product"
+   ],
+   "Customer Management": [
+    "Customer Relationship Management",
+    "Customer Product And Service Eligibility",
+    "Customer Agreement",
+    "Sales Product Agreement",
+    "Customer Access Entitlement",
+    "Customer Behavior Insights",
+    "Customer Credit Rating",
+    "Account Recovery",
+    "Customer Event History",
+    "Customer Proposition",
+    "Customer Product and Service Directory"
+   ],
+   "Servicing": [
+    "Servicing Issue",
+    "Customer Case Management",
+    "Case Root Cause Analysis",
+    "Customer Case",
+    "Card Case",
+    "Servicing Order",
+    "Servicing Mandate",
+    "Payment Initiation"
+   ]
+  },
+  "Reference Data": {
+   "Party": [
+    "Party Reference Data Directory",
+    "Party Routing Profile",
+    "Legal Entity Directory"
+   ],
+   "External Agency": [
+    "Information Provider Administration",
+    "Syndicate Management",
+    "Interbank Relationship Management",
+    "Correspondent Bank Relationship Management",
+    "Correspondent Bank Directory",
+    "Sub Custodian Agreement",
+    "Product Service Agency",
+    "Product Broker Agreement",
+    "Contractor and Supplier Agreement"
+   ],
+   "Market Data": [
+    "Information Provider Operation",
+    "Market Information Management",
+    "Financial Market Analysis",
+    "Financial Market Research",
+    "Quant Model",
+    "Market Data Switch Administration",
+    "Market Data Switch Operation",
+    "Financial Instrument Reference Data Management",
+    "Counterparty Administration",
+    "Public Reference Data Management",
+    "Location Data Management"
+   ],
+   "Product Management": [
+    "Product Design",
+    "Product Deployment",
+    "Product Training",
+    "Product Quality Assurance",
+    "Discount Pricing",
+    "Product Directory",
+    "Special Pricing Conditions"
+   ]
+  },
+  "Operations and Execution": {
+   "Loans and Deposits": [
+    "Loan",
+    "Leasing",
+    "Current Account",
+    "Corporate Current Account",
+    "Consumer Loan",
+    "Corporate Loan",
+    "Term Deposit",
+    "Corporate Lease",
+    "Merchandising Loan",
+    "Mortgage Loan",
+    "Fiduciary Agreement",
+    "Savings Account",
+    "Virtual Account",
+    "Standing Order",
+    "Term Deposit Framework Agreement"
+   ],
+   "Investment Management": [
+    "Investment Portfolio Planning",
+    "Investment Portfolio Analysis",
+    "Investment Portfolio Management",
+    "eTrading Workbench",
+    "Investment Account"
+   ],
+   "Trade Banking": [
+    "Letter of Credit",
+    "Bank Guarantee",
+    "Credit Management",
+    "Credit Facility",
+    "Project Finance",
+    "Limit and Exposure Management",
+    "Syndicated Loan",
+    "Cash Management And Account Services",
+    "Direct Debit Mandate",
+    "Direct Debit",
+    "Cheque Lock Box",
+    "Factoring",
+    "Cash Concentration",
+    "Notional Pooling",
+    "Corporate Payroll Services"
+   ],
+   "Wholesale Trading": [
+    "Trading Book Oversight",
+    "Trading Models",
+    "Dealer Desk",
+    "Quote Management",
+    "Suitability Checking",
+    "Credit Risk Operations",
+    "Market Making",
+    "ECM And DCM",
+    "Program Trading",
+    "Trader Position Operations",
+    "Market Order",
+    "Market Order Execution"
+   ],
+   "Cards": [
+    "Credit Card",
+    "Card Authorization",
+    "Card Transaction Capture",
+    "Merchant Relations",
+    "Merchant Acquiring Facility",
+    "Card Network Participant Facility",
+    "Credit Card Position Keeping"
+   ],
+   "Market Operations": [
+    "Mutual Fund Administration",
+    "Hedge Fund Administration",
+    "Unit Trust Administration",
+    "Trade Confirmation Matching",
+    "Order Allocation",
+    "Securities Fails Processing",
+    "Trade and Price Reporting",
+    "Custody Administration",
+    "Corporate Action",
+    "Financial Instrument Valuation",
+    "Trade Clearing",
+    "Trade Settlement"
+   ],
+   "Corporate Financing and Advisory Services": [
+    "Public Offering",
+    "Private Placement",
+    "Mergers and Acquisitions Advisory",
+    "Corporate Tax Advisory",
+    "Corporate Finance"
+   ],
+   "Consumer Services": [
+    "Corporate Trust Services",
+    "Currency Exchange",
+    "Bank Drafts",
+    "Brokered Product",
+    "Consumer Investments",
+    "Customer Tax Handling",
+    "Consumer Advisory Services",
+    "Trust Services"
+   ],
+   "Payments": [
+    "Payment Order",
+    "Payment Execution",
+    "Financial Message Analysis",
+    "Financial Gateway",
+    "Central Cash Handling",
+    "Card Financial Settlement",
+    "Card eCommerce Gateway",
+    "Card Clearing",
+    "ACH Operations",
+    "Cheque Processing",
+    "Payment Instruction",
+    "Correspondent Bank Operations",
+    "Payment Rail Operations"
+   ],
+   "Account Management": [
+    "Reward Points Account",
+    "Product Combination",
+    "Position Management",
+    "Position Keeping",
+    "Fraud Evaluation",
+    "Fraud Diagnosis",
+    "Customer Position",
+    "Counterparty Risk",
+    "Accounts Receivable",
+    "Account Reconciliation",
+    "Securities Position Keeping",
+    "Transaction Engine"
+   ],
+   "Operational Services": [
+    "Reward Points Awards And Redemption",
+    "Open Item Management",
+    "Leasing Item Administration",
+    "Issued Device Tracking",
+    "Issued Device Administration",
+    "Disbursement",
+    "Delinquent Account Handling",
+    "Channel Activity History",
+    "Channel Activity Analysis",
+    "Card Transaction Switch",
+    "Card Collections",
+    "Customer Billing",
+    "Internal Bank Account",
+    "Processing Order"
+   ],
+   "Collateral Administration": [
+    "Collections",
+    "Collateral Asset Administration",
+    "Collateral Allocation Management",
+    "Party Asset Directory"
+   ]
+  },
+  "Risk and Compliance": {
+   "Bank Portfolio and Treasury": [
+    "Stock Lending and Repos",
+    "Corporate Treasury Analysis",
+    "Corporate Treasury",
+    "Bank Portfolio Analysis",
+    "Bank Portfolio Administration",
+    "Asset Securitization",
+    "Asset And Liability Management"
+   ],
+   "Business Analysis": [
+    "Market Analysis",
+    "Contribution Analysis",
+    "Competitor Analysis",
+    "Channel Portfolio",
+    "Branch Portfolio",
+    "Segment Direction",
+    "Customer Portfolio",
+    "Product Portfolio",
+    "Market Research"
+   ],
+   "Regulations and Compliance": [
+    "Regulatory Reporting",
+    "Regulatory Compliance",
+    "Guideline Compliance",
+    "Fraud Resolution",
+    "Financial Accounting",
+    "Compliance Reporting",
+    "Financial Statement Assessment"
+   ],
+   "Models": [
+    "Contribution Models",
+    "Operational Risk Models",
+    "Production Risk Models",
+    "Credit and Margin Management",
+    "Business Risk Models",
+    "Customer Behavior Models",
+    "Economic Capital",
+    "Credit Risk Models",
+    "Financial Instrument Valuation Models",
+    "Market Risk Models",
+    "Liquidity Risk Models",
+    "Gap Analysis",
+    "Fraud Model"
+   ]
+  },
+  "Business Support": {
+   "IT Management": [
+    "Systems Operations",
+    "Systems Assurance",
+    "Systems Administration",
+    "System Development",
+    "System Deployment",
+    "Production Release",
+    "Platform Operations",
+    "IT Systems Direction",
+    "IT Standards And Guidelines",
+    "Internal Network Operation",
+    "Development Environment",
+    "Systems Help Desk",
+    "Operational Gateway"
+   ],
+   "Non-IT and Non-HR Enterprise Services": [
+    "Security Assurance",
+    "Security Advisory",
+    "Procurement",
+    "Legal Compliance",
+    "Internal Audit",
+    "Fixed Asset Register",
+    "Company Billing and Payments",
+    "Approved Supplier Directory",
+    "Legal Advisory"
+   ],
+   "Buildings Equipment and Facilities": [
+    "Utilities Administration",
+    "Site Operations",
+    "Site Administration",
+    "Property Portfolio",
+    "Equipment Maintenance",
+    "Equipment Administration",
+    "Building Maintenance"
+   ],
+   "Business Command and Control": [
+    "Business Unit Management",
+    "Business Unit Financial Analysis",
+    "Business Unit Direction",
+    "Business Unit Accounting",
+    "Business Unit Financial Operations",
+    "Organization Direction"
+   ],
+   "Finance": [
+    "Financial Statements",
+    "Financial Control",
+    "Financial Compliance",
+    "Enterprise Tax Administration"
+   ],
+   "Human Resource Management": [
+    "Workforce Training",
+    "Travel and Expenses",
+    "Recruitment",
+    "Human Resources Direction",
+    "Employee and Contractor Contract",
+    "Employee Payroll And Incentives",
+    "Employee Evaluation",
+    "Employee Data Management",
+    "Employee Certification",
+    "Employee Benefits",
+    "Employee Assignment",
+    "Employee Access"
+   ],
+   "Knowledge and Intellectual Property Management": [
+    "Management Manual",
+    "Knowledge Exchange",
+    "Intellectual Property Portfolio"
+   ],
+   "Corporate Relations": [
+    "Regulatory And Legal Authority",
+    "Investor Relations",
+    "Corporate Relationship",
+    "Corporate Communications",
+    "Corporate Alliance and Stake Holder"
+   ],
+   "Business Direction": [
+    "Corporate Strategy",
+    "Corporate Policies",
+    "Continuity Planning",
+    "Enterprise Architecture",
+    "Products and Services Direction"
+   ],
+   "Document Management and Archive": [
+    "Document Directory",
+    "Correspondence",
+    "Archive Services",
+    "Document Services"
+   ]
+  }
+ }
+}

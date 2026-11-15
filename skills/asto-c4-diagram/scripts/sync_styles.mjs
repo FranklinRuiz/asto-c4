@@ -26,6 +26,7 @@ const ENTRIES = {
   deployment_node: 'Deployment node boundary',
   title_dynamic: 'Dynamic diagram title',
   title_deployment: 'Deployment diagram title',
+  group: 'Group',
 };
 
 const NAMED = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };

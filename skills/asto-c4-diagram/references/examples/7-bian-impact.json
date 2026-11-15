@@ -1,0 +1,57 @@
+{
+  "level": "bian",
+  "language": "es",
+  "frameworks": ["bian", "iso20022", "togaf"],
+  "numbered": true,
+  "title": "Cobros con QR interoperable",
+  "description": "Qué capacidades BIAN de la billetera toca el proyecto, y en qué orden se usan al cobrar con QR.",
+  "meta": { "version": "0.3", "date": "2026-11-15", "author": "Equipo de Arquitectura", "status": "review" },
+  "elements": [
+    { "id": "comercio", "kind": "external_person", "name": "Comercio afiliado",
+      "description": "Negocio que cobra con QR." },
+    { "id": "usuario", "kind": "external_person", "name": "Usuario de billetera",
+      "description": "Persona que paga leyendo el QR." },
+    { "id": "portal", "kind": "web_browser", "name": "Portal de comercios", "technology": "Angular", "status": "modified",
+      "bian": "eBranch Operations", "description": "Genera el QR dinámico del cobro." },
+    { "id": "app", "kind": "mobile_app", "name": "App móvil", "technology": "Flutter", "status": "modified",
+      "bian": "eBranch Operations", "description": "Lee el QR y confirma el pago." },
+    { "id": "qr", "kind": "server_app", "name": "Servicio de cobros QR", "technology": "Java / Spring Boot", "status": "new",
+      "bian": "Merchant Relations", "description": "Registra los cobros del comercio y su estado." },
+    { "id": "pagos", "kind": "server_app", "name": "Servicio de pagos", "technology": "Java / Spring Boot", "status": "modified",
+      "bian": "Payment Execution", "description": "Ejecuta el pago y lo envía a la CCE si es interoperable." },
+    { "id": "fraude", "kind": "server_app", "name": "Servicio antifraude", "technology": "Python",
+      "bian": "Fraud Evaluation", "description": "Evalúa el riesgo del pago en línea." },
+    { "id": "cuentas", "kind": "server_app", "name": "Servicio de cuentas", "technology": "Java / Spring Boot", "status": "out_of_scope",
+      "bian": "Current Account", "description": "Debita y acredita los saldos." },
+    { "id": "cce", "kind": "external_system", "name": "Cámara de Compensación Electrónica", "status": "out_of_scope",
+      "description": "Liquida el pago con la otra entidad." }
+  ],
+  "relationships": [
+    { "from": "comercio", "to": "portal", "description": "Genera el QR del cobro en" },
+    { "from": "portal", "to": "qr", "description": "Registra el cobro en", "technology": "JSON/HTTPS" },
+    { "from": "usuario", "to": "app", "description": "Lee el QR y paga con" },
+    { "from": "app", "to": "pagos", "description": "Inicia el pago en", "technology": "JSON/HTTPS" },
+    { "from": "pagos", "to": "fraude", "description": "Evalúa el riesgo con", "technology": "gRPC" },
+    { "from": "pagos", "to": "cuentas", "description": "Debita la cuenta en", "technology": "JSON/HTTP" },
+    { "from": "pagos", "to": "cce", "description": "Envía el pago interoperable a", "technology": "ISO 20022 pacs.008" },
+    { "from": "pagos", "to": "qr", "description": "Marca el cobro como pagado en", "technology": "Kafka" }
+  ],
+  "decisions": [
+    { "title": "Servicio propio para cobros QR", "status": "accepted",
+      "context": "Los cobros QR tienen su propio ciclo de vida (generado, pagado, vencido) y crecerán con nuevos comercios.",
+      "decision": "Crear el Servicio de cobros QR, alineado al BIAN Service Domain Merchant Relations, en lugar de ampliar el Servicio de pagos.",
+      "consequences": "El Servicio de pagos sigue enfocado en ejecutar pagos; se suma un servicio a operar y monitorear." },
+    { "title": "QR dinámico según el estándar EMVCo", "status": "proposed",
+      "context": "El QR debe poder leerse desde otras billeteras y bancos.",
+      "decision": "Generar QR dinámicos con el formato EMVCo Merchant Presented Mode.",
+      "consequences": "Interoperable con otras entidades; requiere validar el formato con la CCE." },
+    { "title": "Confirmar el cobro por eventos", "status": "accepted",
+      "context": "El comercio necesita saber que le pagaron, aunque el pago tarde en liquidarse.",
+      "decision": "El Servicio de pagos publica un evento y el Servicio de cobros QR lo consume para marcar el cobro como pagado.",
+      "consequences": "Los servicios quedan desacoplados; el estado del cobro es eventualmente consistente." }
+  ],
+  "notes": [
+    "El Servicio de cuentas y la CCE no cambian: aparecen atenuados como contexto.",
+    "Confirmar con la CCE si el pago QR interoperable usa pacs.008 o un mensaje propio del esquema."
+  ]
+}

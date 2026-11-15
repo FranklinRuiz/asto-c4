@@ -135,14 +135,35 @@ Elements keep their text as properties, and draw.io builds the label from them.
 
 ## AI skill: diagrams from a conversation
 
-The repository includes **`asto-c4-diagram`**, an [Agent Skill](https://agentskills.io/) that interviews you about your system and builds a C4 diagram in the Asto C4 notation: system context, container, component, dynamic or deployment. It works with Claude (Claude Code and the Claude apps) and GitHub Copilot.
+The repository includes **`asto-c4-diagram`**, an [Agent Skill](https://agentskills.io/) that builds a C4 diagram from what you describe, with a short interview for what is missing, using the Asto C4 elements: system context, container, component, dynamic or deployment. It works with Claude (Claude Code and the Claude apps) and GitHub Copilot.
 
-1. Pick the diagram: **System Context**, **Container**, **Component**, **Dynamic** or **Deployment**.
-2. Answer a few rounds of questions, or let the agent read your codebase and confirm what it finds.
-3. Review the summary of people, elements and relationships.
-4. Get a `.txt` file. In draw.io, open **Arrange → Insert → Advanced → CSV…**, replace the sample with the file's content and click **Import**.
+1. Describe your system or the change you are working on, or point the agent to your codebase.
+2. Answer a few focused questions, mostly picking from options it proposes: which diagram, what is missing for a sound architecture (users, capabilities, integrations, constraints) and whether to add a reference framework.
+3. Review the draft it proposes (people, elements, relationships) and correct it in one reply.
+4. Get a `.drawio` file, with the diagram title and a legend of only the colours used (and, with BIAN, a second page with the BIAN Impact View). Open it in draw.io (or in VS Code with the Draw.io Integration extension); to add it to an open diagram, use **File → Import from → Device**.
 
-The imported elements are the same as the ones in the library, so you can keep editing them with **Edit Data**. The skill needs Node.js 18 or later to build the file (the same Node that runs `npx`); no packages to install.
+Every shape is the library element itself, with the same properties and nothing added, so you keep editing it with **Edit Data**. The skill needs Node.js 18 or later to build the file (the same Node that runs `npx`); no packages to install.
+
+### Reference frameworks
+
+C4 is always the base. When the skill recognises the domain, it offers to combine C4 with a reference framework, and applies it only if you accept:
+
+| Framework | When it is offered | What it adds |
+|---|---|---|
+| **BIAN** (Service Landscape v12.0) | Banking, wallets, payments, cards, loans | A second page with the **BIAN Impact View**: each container or component inside its BIAN Business Area, Business Domain and Service Domain. The C4 page stays clean, with no BIAN tags. Names are checked against the official landscape, so none is invented. |
+| **ISO 20022** | Payments between institutions | The payment messages on the arrows (`ISO 20022 pacs.008 / pacs.002`). |
+| **TOGAF** | Enterprise architecture work, any domain | Architecture principles, building blocks (ABB → SBB) and where each view sits in the ADM. |
+| TM Forum, ACORD, HL7 FHIR | Telecom, insurance, health | Suggested vocabulary and notes. |
+
+### Project deliverables
+
+For a diagram that documents a project or a change, the skill can also add:
+
+- **Change status** per element: new elements in purple, modified in orange and out-of-scope context in grey, explained in the legend. No extra shapes.
+- **Document control** at the end of the title's description: version, date, author and status (draft, in review, approved).
+- **Architecture decisions (ADR)** in the companion document.
+
+With a framework or a project deliverable, you also get a **companion document** (`.md`) next to the diagram: document control, the elements with their status and BIAN mapping, the relationships with their ISO 20022 messages, the TOGAF principles and building blocks, the ADRs, and the gaps to follow up.
 
 ### Install
 
@@ -201,7 +222,8 @@ Relationships are gray dashed lines with a filled arrowhead. The description and
 | [`Asto-C4-Library.xml`](Asto-C4-Library.xml) | The same library, for **File → Open Library…** |
 | [`Asto-C4-Example-diagram.drawio`](Asto-C4-Example-diagram.drawio) | Example diagram built with the library |
 | `Asto-C4.png`, `Asto-C4-Screenshot.png` | Images used in this README |
-| [`skills/asto-c4-diagram`](skills/asto-c4-diagram) | The AI skill that builds C4 diagrams as draw.io CSV imports |
+| [`skills/asto-c4-diagram`](skills/asto-c4-diagram) | The AI skill that builds C4 diagrams as `.drawio` files |
+| [`skills/asto-c4-diagram/assets/bian-service-landscape-v12.json`](skills/asto-c4-diagram/assets/bian-service-landscape-v12.json) | BIAN Service Landscape v12.0 names, from [bian.org](https://bian.org/servicelandscape-12-0-0/views/view_51891.html) |
 | [`.claude-plugin`](.claude-plugin) | Plugin and marketplace manifests for Claude Code |
 
 `Asto C4` and `Asto-C4-Library.xml` have identical content. Keep them in sync when you change the library.

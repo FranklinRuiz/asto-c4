@@ -159,5 +159,12 @@
   "label": "<div><b><font style=\"font-size: 16px\">%c4Name%</font></b></div><div><font style=\"font-size: 12px\">%c4Description%</font></div>",
   "width": 280,
   "height": 44
+ },
+ "group": {
+  "title": "Group",
+  "style": "rounded=0;dashed=1;dashPattern=1 4;fillColor=none;strokeColor=#444444;fontColor=#444444;strokeWidth=2;whiteSpace=wrap;html=1;align=left;verticalAlign=bottom;spacing=10;labelBackgroundColor=none;metaEdit=1;rotatable=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;pointerEvents=1;container=1;collapsible=0;fontFamily=Helvetica;fontSize=11;",
+  "label": "<div style=\"font-size: 13px\" align=\"left\"><b>%c4Name%</b></div>",
+  "width": 240,
+  "height": 180
  }
 }

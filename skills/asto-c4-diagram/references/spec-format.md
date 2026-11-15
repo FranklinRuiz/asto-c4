@@ -1,4 +1,4 @@
-# Spec format for `build_csv.mjs`
+# Spec format for `build_drawio.mjs`
 
 ```json
 {
@@ -29,7 +29,7 @@
 
 | Field | Notes |
 |---|---|
-| `level` | `context` (level 1), `containers` (level 2), `components` (level 3), `dynamic` or `deployment`. |
+| `level` | `context` (level 1), `containers` (level 2), `components` (level 3), `dynamic`, `deployment` or `bian` (BIAN Impact View, see below). |
 | `scope` | Only for `dynamic`: `context`, `containers` or `components` (default). The diagram is drawn like that level, with the same `boundary`, `system`, `inside` and `in_system` fields. |
 | `title` | Shown after the view name: `Container View: Internet Banking System`. On level 3 use `<system> - <container>`, e.g. `Internet Banking System - Backend`. |
 | `description` | One line under the title. |
@@ -44,6 +44,39 @@
 | `relationships[]` | `from`, `to`, `description` (a verb phrase), optional `technology`. On a `dynamic` diagram, list them in step order: they are numbered 1, 2, 3… (or set `order`). A reply (B → A after A → B) is drawn beside the request. |
 | `nodes[]` | Only for `deployment`: `id`, `name`, optional `technology`, `instances` and `parent` (the id of the node that contains it). List outer nodes first. |
 | `elements[].node` | Only for `deployment`: the id of the node the element runs in. Elements without a node go in a column on the right. |
+
+### Reference frameworks (optional)
+
+Only when the user chose them (see `frameworks/`). `references/examples/6-container-bian-togaf.json` uses them all.
+
+| Field | Notes |
+|---|---|
+| `language` | `es` or `en`: language of the legend, the status text and the companion document headings. Default `es`. |
+| `legend` | `false` leaves out the legend. By default it is drawn bottom right and lists only the C4 colours and the status colours used in the diagram. |
+| `frameworks` | Any of `bian`, `iso20022`, `togaf`, `tmforum`, `acord`, `fhir`. Listed in the companion document; `bian` also warns about untagged elements. |
+| `elements[].bian` | BIAN Service Domain, exactly as in `assets/bian-service-landscape-v12.json` (case does not matter; the script writes the official name and rejects unknown ones, suggesting the closest). Shown on the BIAN Impact View page, which keeps the C4 page clean. Only with `"bian_view": false` is it added at the end of the element's description, `(BIAN: <name>)`. |
+| `bian_view` | With `bian` in `frameworks`, the file gets a second page with the BIAN Impact View of the same elements (default). `false` leaves it out. |
+| `group_by` | Only with `"bian_view": false`. `"bian"`: a library Group (dotted) per BIAN Business Domain with two or more elements inside the boundary. Skipped (with a warning) if other elements sit between them. |
+| `groups[]` / `elements[].group` | Your own groups instead: `{ "id", "name", "type" }`, and `group` on each member. Same drawing rule. |
+| `relationships[].technology` | ISO 20022 messages go here: `"ISO 20022 pacs.008 / pacs.002"`. |
+| `togaf.principles[]` | `name`, `statement`, `rationale`, `implications`. |
+| `togaf.building_blocks[]` | `abb` (what is needed), `sbb` (how it is built), `elements` (ids). |
+| `notes[]` | Gaps and decisions to follow up, one sentence each. |
+
+### Project deliverable (optional, any level)
+
+| Field | Notes |
+|---|---|
+| `elements[].status` | `new` (purple), `modified` (orange), `out_of_scope` (grey) or `unchanged` (default, C4 colour). The element is drawn in the status colour and the legend explains it. No extra shapes. |
+| `meta` | `{ "version", "date", "author", "status" }`, `status` one of `draft`, `review`, `approved`. Added after the title's description (`Versión 0.1 · 2026-11-15 · Autor · Borrador`) and as a "Document control" table in the companion document. |
+| `decisions[]` | ADRs for the companion document: `title`, `decision` (required), `context`, `consequences`, `status` (`proposed`, `accepted`, `superseded`, `deprecated`), optional `id` (default `ADR-001`, `ADR-002`…). |
+| `numbered` | `true` numbers the relationships in order, as on a dynamic diagram. Useful on the BIAN Impact View. |
+
+### BIAN Impact View (`"level": "bian"`)
+
+Nested boxes Business Area → Business Domain → Service Domain (only those used), each element with `bian` inside its Service Domain, laid out by flow. People go in a row on top, over what they use; elements without `bian` (external systems, technical ones) in a column on the right. No `boundary`, `inside` or `nodes`. Example: `references/examples/7-bian-impact.json`.
+
+Run with `--doc companion.md` to write the companion document: the TOGAF place of the view, the elements with their BIAN Service Domain, Business Domain and Business Area, the relationships with their ISO 20022 messages, the principles, the building blocks, the document control, the change status, the ADRs and the notes.
 
 ## Kinds
 
@@ -96,9 +129,10 @@ The script places elements like the c4model.com examples:
 - **Level 3 with `system`:** the container boundary nested in the system boundary, `in_system` callers above it and data stores below it, each under the component that uses it.
 - **Right:** external systems in a column, each at the height of what it talks to. Those that talk to the people sit higher. External systems reached only through another external go in a second column, next to their partner.
 - **Labels:** each relationship label sits in the middle of its arrow; when that spot is taken by another label or an element, it moves beside the line.
-- **Bottom-left:** the diagram title.
+- **Bottom-left:** the diagram title. **Bottom-right:** the legend, with only the colours used.
 
 - **Dynamic:** like its `scope`. Two-way pairs (a request and its reply) run side by side, with their labels on opposite sides.
+- **BIAN Impact View:** nested BIAN boxes like deployment nodes, people on top.
 - **Deployment:** nested node boxes; inside each node, its contents in rows by flow (what is called first on top), up to 3 per row.
 
 The order of `elements` breaks ties within a row. The user can rearrange in draw.io after importing.
